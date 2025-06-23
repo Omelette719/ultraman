@@ -27,8 +27,8 @@ def add():
         new_ultra = Ultraman(
             name=request.form['name'],
             human_host=request.form['human_host'],
-            height=float(request.form['height']),
-            weight=float(request.form['weight']),
+            height=request.form['height'],
+            weight=request.form['weight'],
             description=request.form['description'],
             image=filename
         )
@@ -45,8 +45,8 @@ def edit(id):
     if request.method == 'POST':
         ultra.name = request.form['name']
         ultra.human_host = request.form['human_host']
-        ultra.height = float(request.form['height'])
-        ultra.weight = float(request.form['weight'])
+        ultra.height = request.form['height']
+        ultra.weight = request.form['weight']
         ultra.description = request.form['description']
 
         image_file = request.files['image']
