@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 <a href="{{ url_for('main.index') }}" class="btn btn-secondary mb-3">← Kembali</a>
-<div class="card">
-    <img src="{{ url_for('static', filename='uploads/' ~ u.image) }}" class="card-img-top" style="max-width: 300px; height: auto;">
-    <div class="card-body">
-        <h2>{{ u.name }}</h2>
-        <p><strong>Host:</strong> {{ u.human_host }}</p>
-        <p><strong>Tinggi:</strong> {{ u.height }}</p>
-        <p><strong>Berat:</strong> {{ u.weight }}</p>
-        <p>{{ u.description }}</p>
+
+<div class="card p-3">
+    <div class="row g-3 align-items-start">
+
+        <div class="col-md-4 text-center">
+            <img src="{{ url_for('static', filename='uploads/' ~ u.image) }}" class="img-fluid rounded"
+                style="max-width: 100%; height: auto;" alt="{{ u.name }}">
+        </div>
+
+        <div class="col-md-8">
+            <h2>{{ u.name }}</h2>
+            <p><strong>Host:</strong> {{ u.human_host }}</p>
+            <p><strong>Tinggi:</strong> {{ u.height }}</p>
+            <p><strong>Berat:</strong> {{ u.weight }}</p>
+            <p>{{ u.description.replace('\n', '<br>') | safe }}</p>
+        </div>
+
     </div>
 </div>
 {% endblock %}
