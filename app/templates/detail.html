@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('main.index') }}" class="btn btn-secondary mb-3">← Kembali</a>
+<div class="card">
+    <img src="{{ url_for('static', filename='uploads/' ~ u.image) }}" class="card-img-top" style="max-width: 300px; height: auto;">
+    <div class="card-body">
+        <h2>{{ u.name }}</h2>
+        <p><strong>Host:</strong> {{ u.human_host }}</p>
+        <p><strong>Tinggi:</strong> {{ u.height }} m</p>
+        <p><strong>Berat:</strong> {{ u.weight }} kg</p>
+        <p>{{ u.description }}</p>
+    </div>
+</div>
+{% endblock %}

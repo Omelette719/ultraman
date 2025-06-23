@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label>Nama Ultraman</label>
+        <input type="text" name="name" class="form-control" value="{{ u.name if u else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Human Host</label>
+        <input type="text" name="human_host" class="form-control" value="{{ u.human_host if u else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Tinggi (meter)</label>
+        <input type="number" step="any" name="height" class="form-control" value="{{ u.height if u else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Berat (kg)</label>
+        <input type="number" step="any" name="weight" class="form-control" value="{{ u.weight if u else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Deskripsi</label>
+        <textarea name="description" class="form-control" required>{{ u.description if u else '' }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label>Gambar</label>
+        <input type="file" name="image" class="form-control" {% if not u %}required{% endif %}>
+    </div>
+    <button class="btn btn-success">{{ action }} Ultraman</button>
+</form>
+{% endblock %}
