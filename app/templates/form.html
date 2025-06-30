@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
+
+<a href="{{ url_for('main.index') }}" class="btn btn-secondary mb-3">← Kembali</a>
 <form method="POST" enctype="multipart/form-data">
     <div class="mb-3">
         <label>Nama Ultraman</label>
